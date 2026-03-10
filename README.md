@@ -6,6 +6,7 @@
 [![SQL Server](https://img.shields.io/badge/SQL%20Server-SSMS%2022-CC2927?style=for-the-badge&logo=microsoftsqlserver&logoColor=white)](https://learn.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms)
 [![C#](https://img.shields.io/badge/C%23-Language-239120?style=for-the-badge&logo=csharp&logoColor=white)](https://learn.microsoft.com/en-us/dotnet/csharp/)
 [![GitHub](https://img.shields.io/badge/GitHub-Source%20Control-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)
+[![YouTube](https://img.shields.io/badge/YouTube-Video%20Walkthrough-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/ErD-wNRYtSg)
 
 ---
 
@@ -334,5 +335,5 @@ Test all CRUD operations to confirm the application is working correctly with th
 ---
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-```
 
+[![YouTube](https://img.shields.io/badge/YouTube-Video%20Walkthrough-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtu.be/ErD-wNRYtSg)
