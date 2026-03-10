@@ -1,4 +1,3 @@
-```markdown
 # CoffeeQueueApp
 
 [![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?style=for-the-badge&logo=dotnet&logoColor=white)](https://dotnet.microsoft.com/)
@@ -337,11 +336,3 @@ Test all CRUD operations to confirm the application is working correctly with th
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 ```
 
-***
-
-Everything above is the complete raw Markdown. To use it:
-
-1. Go to your repository at `https://github.com/st10251759/CoffeeQueueApp`
-2. Click **Add a README** or open the existing `README.md`
-3. Switch to the **Edit** tab, select all existing content, and paste this in
-4. Click **Commit changes** — GitHub will render the badges, tables, and code blocks automatically
