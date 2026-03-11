@@ -34,7 +34,14 @@ namespace CoffeeQueueApp.Models
         public string Status { get; set; } = "Completed";
 
         //date created
-        public DateTime CreatedAt { get; set; }
+        public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+        //Foreign Key to Barista
+        [Display(Name = "Assigned Barista")]
+        public int BaristaId { get; set; }
+
+        //navigation property - reference to the actual Barista object who is making the order
+        public Barista? Barista { get; set; }
 
     }
 }

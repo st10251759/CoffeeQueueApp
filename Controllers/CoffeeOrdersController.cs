@@ -22,7 +22,8 @@ namespace CoffeeQueueApp.Controllers
         // GET: CoffeeOrders
         public async Task<IActionResult> Index()
         {
-            return View(await _context.CoffeeOrder.ToListAsync());
+            var applicationDbContext = _context.CoffeeOrder.Include(c => c.Barista);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: CoffeeOrders/Details/5
@@ -34,6 +35,7 @@ namespace CoffeeQueueApp.Controllers
             }
 
             var coffeeOrder = await _context.CoffeeOrder
+                .Include(c => c.Barista)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (coffeeOrder == null)
             {
@@ -46,6 +48,7 @@ namespace CoffeeQueueApp.Controllers
         // GET: CoffeeOrders/Create
         public IActionResult Create()
         {
+            ViewData["BaristaId"] = new SelectList(_context.Baristas, "Id", "Shift");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace CoffeeQueueApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,CustomerName,Drink,Size,Milk,Sugar,Status,CreatedAt")] CoffeeOrder coffeeOrder)
+        public async Task<IActionResult> Create([Bind("ID,CustomerName,Drink,Size,Milk,Sugar,Status,CreatedAt,BaristaId")] CoffeeOrder coffeeOrder)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace CoffeeQueueApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["BaristaId"] = new SelectList(_context.Baristas, "Id", "Shift", coffeeOrder.BaristaId);
             return View(coffeeOrder);
         }
 
@@ -78,6 +82,7 @@ namespace CoffeeQueueApp.Controllers
             {
                 return NotFound();
             }
+            ViewData["BaristaId"] = new SelectList(_context.Baristas, "Id", "Shift", coffeeOrder.BaristaId);
             return View(coffeeOrder);
         }
 
@@ -86,7 +91,7 @@ namespace CoffeeQueueApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ID,CustomerName,Drink,Size,Milk,Sugar,Status,CreatedAt")] CoffeeOrder coffeeOrder)
+        public async Task<IActionResult> Edit(int id, [Bind("ID,CustomerName,Drink,Size,Milk,Sugar,Status,CreatedAt,BaristaId")] CoffeeOrder coffeeOrder)
         {
             if (id != coffeeOrder.ID)
             {
@@ -113,6 +118,7 @@ namespace CoffeeQueueApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["BaristaId"] = new SelectList(_context.Baristas, "Id", "Shift", coffeeOrder.BaristaId);
             return View(coffeeOrder);
         }
 
@@ -125,6 +131,7 @@ namespace CoffeeQueueApp.Controllers
             }
 
             var coffeeOrder = await _context.CoffeeOrder
+                .Include(c => c.Barista)
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (coffeeOrder == null)
             {
