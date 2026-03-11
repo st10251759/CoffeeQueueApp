@@ -9,11 +9,10 @@ namespace CoffeeQueueApp.Models
 
         [Required(ErrorMessage = "Barista Name Required")]
         [StringLength(50)]
-
         public string Title { get; set; }
+
         [Required(ErrorMessage = "Barista shift time required")]
         [StringLength(20)]
-
         public string Shift { get; set; } = "Morning";
 
         //navigation property/foreign key

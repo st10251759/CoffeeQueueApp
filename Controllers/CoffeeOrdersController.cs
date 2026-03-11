@@ -48,7 +48,7 @@ namespace CoffeeQueueApp.Controllers
         // GET: CoffeeOrders/Create
         public IActionResult Create()
         {
-            ViewData["BaristaId"] = new SelectList(_context.Baristas, "Id", "Shift");
+            ViewData["BaristaId"] = new SelectList(_context.Baristas, "Id", "Title");
             return View();
         }
 
@@ -65,7 +65,7 @@ namespace CoffeeQueueApp.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BaristaId"] = new SelectList(_context.Baristas, "Id", "Shift", coffeeOrder.BaristaId);
+            ViewData["BaristaId"] = new SelectList(_context.Baristas, "Id", "Title", coffeeOrder.BaristaId);
             return View(coffeeOrder);
         }
 
@@ -82,7 +82,7 @@ namespace CoffeeQueueApp.Controllers
             {
                 return NotFound();
             }
-            ViewData["BaristaId"] = new SelectList(_context.Baristas, "Id", "Shift", coffeeOrder.BaristaId);
+            ViewData["BaristaId"] = new SelectList(_context.Baristas, "Id", "Title", coffeeOrder.BaristaId);
             return View(coffeeOrder);
         }
 
@@ -118,7 +118,7 @@ namespace CoffeeQueueApp.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BaristaId"] = new SelectList(_context.Baristas, "Id", "Shift", coffeeOrder.BaristaId);
+            ViewData["BaristaId"] = new SelectList(_context.Baristas, "Id", "Title", coffeeOrder.BaristaId);
             return View(coffeeOrder);
         }
 
