@@ -135,7 +135,12 @@ public class CoffeeOrder
     [StringLength(15)]
     public string Status { get; set; } = "Completed";
 
-    public DateTime CreatedAt { get; set; }
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+
+    [Display(Name = "Assigned Barista")]
+    public int BaristaId { get; set; }
+
+    public Barista? Barista { get; set; }
 }
 ```
 
